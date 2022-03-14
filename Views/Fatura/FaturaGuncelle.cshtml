@@ -1,0 +1,78 @@
+﻿@model MVC5TicariOtomasyon.Models.Siniflar.Faturalar
+@{
+    ViewBag.Title = "FaturaGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Fatura Güncelle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/">AnaSayfa</a></li>
+                    <li class="breadcrumb-item"><a href="/Fatura/Index">Faturalar</a></li>
+                    <li class="breadcrumb-item"><a href="">Fatura Güncelle</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="card mb-4">
+    <div class="card card-gray-dark">
+        <div class="card-header">
+            <h3 class="card-title">Fatura Güncelle</h3>
+        </div>
+    </div>
+    @using (Html.BeginForm("FaturaGuncelle", "Fatura", FormMethod.Post))
+    {
+        <div class="card-body">
+
+            <div class="form-group">
+                <label for="FaturaSeriNo">Fatura Seri No Giriniz.</label>
+                @Html.TextBoxFor(x => x.FaturaSeriNo, new { @class = "form-control" })
+                @Html.HiddenFor(x => x.FaturaID)
+            </div>
+
+            <div class="form-group">
+                <label for="FaturaSiraNo">Fatura Sıra No Giriniz.</label>
+                @Html.TextBoxFor(x => x.FaturaSiraNo, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="FaturaTarih">Fatura Tarih Giriniz.</label>
+                @Html.TextBoxFor(x => x.FaturaTarih, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="FaturaSaat">Fatura Saat Giriniz.</label>
+                @Html.TextBoxFor(x => x.FaturaSaat, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="FaturaVergiDairesi">Fatura Vergi Dairesi Giriniz.</label>
+                @Html.EnumDropDownListFor(x => x.FaturaVergiDairesi, "İlçe Seçiniz.", new { @class = "form-control select2" })
+            </div>
+
+            <div class="form-group">
+                <label for="FaturaTeslimEden">Fatura Teslim Eden Giriniz.</label>
+                @Html.TextBoxFor(x => x.FaturaTeslimEden, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="FaturaTeslimAlan">Fatura Teslim Alan Giriniz.</label>
+                @Html.TextBoxFor(x => x.FaturaTeslimAlan, new { @class = "form-control" })
+            </div>
+
+        </div>
+        <div class="card-body">
+            <button type="submit" class="btn btn-dark">Fatura Kaydet</button>
+        </div>
+    }
+</div>
+<script>
+    document.getElementsByTagName("option")[0].disabled = true;
+</script>

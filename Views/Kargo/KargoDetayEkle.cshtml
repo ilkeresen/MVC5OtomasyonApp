@@ -1,0 +1,63 @@
+﻿@model MVC5TicariOtomasyon.Models.Siniflar.KargoDetay
+@{
+    ViewBag.Title = "KargoDetayEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Kargo Ekle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="/Kargo/Index">Kargolar</a></li>
+                    <li class="breadcrumb-item"><a href="">Kargo Ekle</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="card mb-4">
+    <div class="card card-gray-dark">
+        <div class="card-header">
+            <h3 class="card-title">Yeni Kargo Ekle</h3>
+        </div>
+    </div>
+    <form method="post">
+        <div class="card-body">
+
+            <div class="form-group">
+                <label for="KargoDetayTakipKodu">Kargo Takip Kodu Giriniz.</label>
+                <input type="text" name="KargoDetayTakipKodu" value="@ViewBag.KargoTakipKod" class="form-control" readonly />
+            </div>
+
+            <div class="form-group">
+                <label for="KargoDetayPersonel">Kargo Personel Giriniz.</label>
+                @Html.DropDownListFor(x => x.KargoDetayPersonel, (List<SelectListItem>)ViewBag.Personeller, "Personel Seçiniz.", new { @class = "form-control select2" })
+            </div>
+
+            <div class="form-group">
+                <label for="KargoDetayAlici">Kargo Alıcı Giriniz.</label>
+                @Html.DropDownListFor(x => x.KargoDetayAlici, (List<SelectListItem>)ViewBag.Cariler, "Cari Seçiniz.", new { @class = "form-control select2" })
+            </div>
+
+            <div class="form-group">
+                <label for="KargoTarih">Kargo Tarih Giriniz.</label>
+                @Html.TextBoxFor(x => x.KargoTarih, new { @class = "form-control", @type = "date", @required = "required" })
+            </div>
+
+            <div class="form-group">
+                <label for="KargoDetayAciklama">Kargo Açıklama Giriniz.</label>
+                @Html.TextAreaFor(x => x.KargoDetayAciklama, new { @rows = "3", @style = "resize:none;", @class = "form-control", @required = "required" })
+            </div>
+
+            <button type="submit" class="btn btn-dark">Kargo Kaydet</button>
+
+        </div>
+            
+    </form>
+</div>

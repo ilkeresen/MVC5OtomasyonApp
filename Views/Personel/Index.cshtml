@@ -1,0 +1,81 @@
+﻿@using MVC5TicariOtomasyon.Models.Siniflar
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Personel Listesi</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="">Personeller</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="card mb-4">
+    <div class="card card-gray-dark">
+        <div class="card-header">
+            <h3 class="card-title">Personeller Tablosu</h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Personel ID</th>
+                    <th>Personel Ad</th>
+                    <th>Personel Soyad</th>
+                    <th>Personel Görsel</th>
+                    <th>Personel Departman</th>
+                    <th>Personel Güncelle</th>
+                    <th>Personel Satışlar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var k in Model)
+                {
+                    <tr>
+                        <td>@k.PersonelID</td>
+                        <td>@k.PersonelAd</td>
+                        <td>@k.PersonelSoyad</td>
+                        <td align="center" width="27%">
+                            <img style="width:30%" src="@k.PersonelGorsel" class="img-fluid" alt="@k.PersonelAd @k.PersonelSoyad" />
+                        </td>
+                        <td>@k.Departman.DepartmanAd</td>
+                        <td align="center">
+                            <a href="/Personel/PersonelGuncelle/@k.PersonelID" class="btn btn-warning">
+                                <i class="fas fa-edit"></i> Güncelle
+                            </a>
+                        </td>
+                        <td align="center">
+                            <a href="/Departman/DepartmanPersonelSatis/@k.PersonelID" class="btn btn-info">
+                                <i class="fas fa-eye"></i> Detay
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Personel ID</th>
+                    <th>Personel Ad</th>
+                    <th>Personel Soyad</th>
+                    <th>Personel Görsel</th>
+                    <th>Personel Departman</th>
+                    <th>Personel Güncelle</th>
+                    <th>Personel Satışlar</th>
+                </tr>
+            </tfoot>
+        </table>
+        <a href="/Personel/PersonelEkle" class="btn btn-dark">Yeni Personel Ekle</a>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@model MVC5TicariOtomasyon.Models.Siniflar.Kategori
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Kategori Ekle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="/Kategori/Index">Kategoriler</a></li>
+                    <li class="breadcrumb-item"><a href="">Kategori Ekle</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="card mb-4">
+    <div class="card card-gray-dark">
+        <div class="card-header">
+            <h3 class="card-title">Yeni Kategori Ekle</h3>
+        </div>
+    </div>
+    <form method="post">
+        <div class="card-body">
+
+            <div class="form-group">
+                <label for="KategoriAD">Kategori Adı Giriniz.</label>
+                @Html.TextBoxFor(x => x.KategoriAD, new { @class = "form-control" })
+            </div>
+
+        </div>
+        <div class="card-body">
+            <button type="submit" class="btn btn-dark">Kategori Kaydet</button>
+        </div>
+    </form>
+</div>

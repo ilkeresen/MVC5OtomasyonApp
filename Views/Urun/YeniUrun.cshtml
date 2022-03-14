@@ -1,0 +1,79 @@
+﻿@model MVC5TicariOtomasyon.Models.Siniflar.Urun
+@{
+    ViewBag.Title = "YeniUrun";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Yeni Ürün Ekle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="/Urun/Index">Ürünler</a></li>
+                    <li class="breadcrumb-item"><a href="">Yeni Ürün Ekle</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="card mb-4">
+    <div class="card card-gray-dark">
+        <div class="card-header">
+            <h3 class="card-title">Yeni Ürün Ekle</h3>
+        </div>
+    </div>
+    <form method="post">
+        <div class="card-body">
+
+            <div class="form-group">
+                <label for="UrunAd">Ürün Adı Giriniz.</label>
+                @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="UrunAciklama">Ürün Açıklama Giriniz.</label>
+                @Html.TextBoxFor(x => x.UrunAciklama, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="UrunMarka">Ürün Marka Giriniz.</label>
+                @Html.TextBoxFor(x => x.UrunMarka, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="UrunStok">Ürün Stok Giriniz.</label>
+                @Html.TextBoxFor(x => x.UrunStok, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="UrunAlisFiyat">Ürün Alış Fiyat Giriniz.</label>
+                @Html.TextBoxFor(x => x.UrunAlisFiyat, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="UrunSatisFiyat">Ürün Satış Fiyat Giriniz.</label>
+                @Html.TextBoxFor(x => x.UrunSatisFiyat, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="UrunGorsel">Ürün Görsel Giriniz.</label>
+                @Html.TextBoxFor(x => x.UrunGorsel, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="Kategoriid">Ürün Kategori Giriniz.</label>
+                @Html.DropDownListFor(x => x.Kategoriid,(List<SelectListItem>)ViewBag.kategoricombobox, "Kategori Seçiniz", new { @class = "form-control select2" })
+            </div>
+
+        </div>
+        <div class="card-body">
+            <button type="submit" class="btn btn-dark">Yeni Ürün Kaydet</button>
+        </div>
+    </form>
+</div>
+

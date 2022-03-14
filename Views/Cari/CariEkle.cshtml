@@ -1,0 +1,63 @@
+﻿@model MVC5TicariOtomasyon.Models.Siniflar.Cariler
+@{
+    ViewBag.Title = "CariEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Cari Ekle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="/Cari/Index">Cariler</a></li>
+                    <li class="breadcrumb-item"><a href="">Cari Ekle</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="card mb-4">
+    <div class="card card-gray-dark">
+        <div class="card-header">
+            <h3 class="card-title">Yeni Cari Ekle</h3>
+        </div>
+    </div>
+    <form method="post">
+        <div class="card-body">
+
+            <div class="form-group">
+                <label for="CariAd">Cari Adı Giriniz.</label>
+                @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.CariAd, "", new { @style = "color:red" })
+            </div>
+
+            <div class="form-group">
+                <label for="CariSoyad">Cari Soyad Giriniz.</label>
+                @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.CariSoyad, "", new { @style = "color:red" })
+            </div>
+
+            <div class="form-group">
+                <label for="CariSehir">Cari Şehir Giriniz.</label>
+                @Html.EnumDropDownListFor(x => x.CariSehir, "Şehir Seçiniz.", new { @class = "form-control select2" })
+            </div>
+
+            <label for="CariMail">Cari Mail Giriniz.</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                </div>
+                @Html.TextBoxFor(x => x.CariMail, new { type = "email", @class = "form-control" })
+            </div>
+            @Html.ValidationMessageFor(x => x.CariMail, "", new { @style = "color:red" })
+        </div>
+        <div class="card-body">
+            <button type="submit" class="btn btn-dark">Cari Kaydet</button>
+        </div>
+    </form>
+</div>

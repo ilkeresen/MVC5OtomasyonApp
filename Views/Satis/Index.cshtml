@@ -1,0 +1,88 @@
+﻿@using MVC5TicariOtomasyon.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Satış Listesi</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="">Satışlar</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="card mb-4">
+    <div class="card card-gray-dark">
+        <div class="card-header">
+            <h3 class="card-title">Satışlar Tablosu</h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Satış ID</th>
+                    <th>Ürün Ad</th>
+                    <th>Cari Ad Soyad</th>
+                    <th>Personel Ad Soyad</th>
+                    <th>Satış Adet</th>
+                    <th>Satış Fiyat</th>
+                    <th>Satış Toplam Tutar</th>
+                    <th>Satış Tarih</th>
+                    <th>Güncelle</th>
+                    <th>Detaylar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var k in Model)
+                {
+                    <tr>
+                        <td>@k.SatisID</td>
+                        <td>@k.Urun.UrunAd</td>
+                        <td>@k.Cariler.CariAd @k.Cariler.CariSoyad</td>
+                        <td>@k.Personel.PersonelAd @k.Personel.PersonelSoyad</td>
+                        <td>@k.SatisAdet</td>
+                        <td>@k.SatisFiyat.ToString("#,##0.00") ₺</td>
+                        <td>@k.SatisToplamTutar.ToString("#,##0.00") ₺</td>
+                        <td>@Convert.ToDateTime(k.SatisTarih).ToString("dd/MM/yyyy")</td>
+                        <td align="center">
+                            <a href="/Satis/SatisGuncelle/@k.SatisID" class="btn btn-warning">
+                                <i class="fas fa-edit"></i> Güncelle
+                            </a>
+                        </td>
+                        <td align="center">
+                            <a href="/Satis/SatisDetay/@k.SatisID" class="btn btn-info">
+                                <i class="fas fa-eye"></i> Detay
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Satış ID</th>
+                    <th>Ürün Ad</th>
+                    <th>Cari Ad Soyad</th>
+                    <th>Personel Ad Soyad</th>
+                    <th>Satış Adet</th>
+                    <th>Satış Fiyat</th>
+                    <th>Satış Toplam Tutar</th>
+                    <th>Satış Tarih</th>
+                    <th>Güncelle</th>
+                    <th>Detaylar</th>
+                </tr>
+            </tfoot>
+        </table>
+        <a href="/Satis/SatisEkle" class="btn btn-dark">Yeni Satış Ekle</a>
+    </div>
+</div>

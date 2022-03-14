@@ -1,0 +1,87 @@
+﻿@using MVC5TicariOtomasyon.Models.Siniflar
+@model List<Cariler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Cari Listesi</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="">Cariler</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="card mb-4">
+    <div class="card card-gray-dark">
+        <div class="card-header">
+            <h3 class="card-title">Cariler Tablosu</h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Cari Ad</th>
+                    <th>Cari Soyad</th>
+                    <th>Cari Şehir</th>
+                    <th>Cari Mail</th>
+                    <th>Cari Sil</th>
+                    <th>Cari Güncelle</th>
+                    <th>Cari Detay</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int i = 0;}
+                @foreach (var k in Model)
+                {
+                    <tr>
+                        <td>@(++i)</td>
+                        <td>@k.CariAd</td>
+                        <td>@k.CariSoyad</td>
+                        <td>@k.CariSehir</td>
+                        <td>@k.CariMail</td>
+                        <td align="center">
+                            <a href="/Cari/CariSil/@k.CariID" class="btn btn-danger">
+                                <i class="fas fa-backspace"></i> Sil
+                            </a>
+                        </td>
+                        <td align="center">
+                            <a href="/Cari/CariGuncelle/@k.CariID" class="btn btn-warning">
+                                <i class="fas fa-edit"></i> Güncelle
+                            </a>
+                        </td>
+                        <td align="center">
+                            <a href="/Cari/CariMusteriSatis/@k.CariID" class="btn btn-info">
+                                <i class="fas fa-cart-arrow-down"></i> Satış Geçmişi
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>#</th>
+                    <th>Cari Ad</th>
+                    <th>Cari Soyad</th>
+                    <th>Cari Şehir</th>
+                    <th>Cari Mail</th>
+                    <th>Cari Sil</th>
+                    <th>Cari Güncelle</th>
+                    <th>Cari Detay</th>
+                </tr>
+            </tfoot>
+        </table>
+        <a href="/Cari/CariEkle" class="btn btn-dark">Yeni Cari Ekle</a>
+    </div>
+</div>

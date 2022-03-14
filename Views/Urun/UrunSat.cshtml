@@ -1,0 +1,79 @@
+﻿@model MVC5TicariOtomasyon.Models.Siniflar.SatisHareket
+@{
+    ViewBag.Title = "UrunSat";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Satış Yap</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="/Urun/Index">Ürünler</a></li>
+                    <li class="breadcrumb-item"><a href="">Yeni Satış Yap</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="card mb-4">
+    <div class="card card-gray-dark">
+        <div class="card-header">
+            <h3 class="card-title">Yeni Satış Yap</h3>
+        </div>
+    </div>
+    <form method="post">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="Urunid">Ürün ID.</label>
+                <input type="text" name="Urunid" value="@ViewBag.Urun" class="form-control" readonly />
+            </div>
+
+            <div class="form-group">
+                <label for="Personelid">Personel Seçiniz.</label>
+                @Html.DropDownListFor(x => x.Personelid, (List<SelectListItem>)ViewBag.Personeller, "Personel Seçiniz.", new { @class = "form-control select2" })
+            </div>
+
+            <div class="form-group">
+                <label for="Cariid">Cari Seçiniz.</label>
+                @Html.DropDownListFor(x => x.Cariid, (List<SelectListItem>)ViewBag.Cariler, "Cari Seçiniz.", new { @class = "form-control select2" })
+            </div>
+
+            <div class="form-group">
+                <label for="SatisAdet">Ürün Adet Giriniz.</label>
+                @Html.TextBoxFor(x => x.SatisAdet, new { @onchange = "sum();", @type ="number", @max = "10", @min = "0", @id ="adet", @class = "form-control", @placeholder = "Ürün Adet Giriniz." })
+                @*<input type="number" class="form-control" max="10" min="0" placeholder="Ürün Adet Giriniz." id="adet" onchange="sum();" />*@
+            </div>
+
+            <div class="form-group">
+                <label for="SatisFiyat">Ürün Satış Fiyat Giriniz.</label>
+                <input type="text" name="SatisFiyat" value="@ViewBag.UrunSatisFiyat" class="form-control" id="fiyat" onkeyup="sum();" />
+            </div>
+
+            <div class="form-group">
+                <label for="SatisToplamTutar">Ürün Toplam Tutar Giriniz.</label>
+                @Html.TextBoxFor(x => x.SatisToplamTutar, new { @class = "form-control", @id = "sonuc", @readonly = true })
+            </div>
+
+        </div>
+        <div class="card-body">
+            <button type="submit" class="btn btn-dark">Yeni Satış Yap</button>
+        </div>
+    </form>
+</div>
+<script>
+    function sum() {
+        var sayi1 = document.getElementById('adet').value;
+        var sayi2 = document.getElementById('fiyat').value;
+        var sonuc = parseInt(sayi1) * parseInt(sayi2);
+        if (!isNaN(sonuc)) {
+            document.getElementById('sonuc').value = sonuc;
+        }
+    }
+</script>

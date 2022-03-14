@@ -1,0 +1,75 @@
+﻿@model MVC5TicariOtomasyon.Models.Siniflar.SatisHareket
+@{
+    ViewBag.Title = "SatisGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Satış Güncelle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/">AnaSayfa</a></li>
+                    <li class="breadcrumb-item"><a href="/Departman/Index">Satışlar</a></li>
+                    <li class="breadcrumb-item"><a href="">Satış Güncelle</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="card mb-4">
+    <div class="card card-gray-dark">
+        <div class="card-header">
+            <h3 class="card-title">Satış Güncelle</h3>
+        </div>
+    </div>
+    @using (Html.BeginForm("SatisGuncelle", "Satis", FormMethod.Post))
+    {
+        @Html.HiddenFor(x => x.SatisID)
+        <div class="card-body">
+
+            <div class="form-group">
+                <label for="Urunid">Ürün Giriniz.</label>
+                @Html.DropDownListFor(x => x.Urunid, (List<SelectListItem>)ViewBag.Urunler,"Ürün Seçiniz.", new { @class = "form-control select2" })
+            </div>
+
+            <div class="form-group">
+                <label for="Cariid">Cari Giriniz.</label>
+                @Html.DropDownListFor(x => x.Cariid, (List<SelectListItem>)ViewBag.Cariler, "Cari Seçiniz.", new { @class = "form-control select2" })
+            </div>
+
+            <div class="form-group">
+                <label for="Personelid">Personel Giriniz.</label>
+                @Html.DropDownListFor(x => x.Personelid, (List<SelectListItem>)ViewBag.Personeller, "Personel Seçiniz.", new { @class = "form-control select2" })
+            </div>
+
+            <div class="form-group">
+                <label for="SatisAdet">Ürün Adet Giriniz.</label>
+                @Html.TextBoxFor(x => x.SatisAdet, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="SatisFiyat">Ürün Satış Fiyat Giriniz.</label>
+                @Html.TextBoxFor(x => x.SatisFiyat, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="SatisToplamTutar">Ürün Toplam Fiyat Giriniz.</label>
+                @Html.TextBoxFor(x => x.SatisToplamTutar, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="SatisTarih">Ürün Satış Tarih Giriniz.</label>
+                @Html.TextBoxFor(x => x.SatisTarih, new { @class = "form-control", @type = "date" })
+            </div>
+
+        </div>
+        <div class="card-body">
+            <button type="submit" class="btn btn-dark">Ürün Güncelle</button>
+        </div>
+    }
+</div>

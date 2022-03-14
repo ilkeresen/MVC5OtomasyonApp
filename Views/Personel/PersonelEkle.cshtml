@@ -1,0 +1,70 @@
+﻿@model MVC5TicariOtomasyon.Models.Siniflar.Personel
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Personel Ekle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="/Personel/Index">Personeller</a></li>
+                    <li class="breadcrumb-item"><a href="">Personel Ekle</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="card mb-4">
+    <div class="card card-gray-dark">
+        <div class="card-header">
+            <h3 class="card-title">Yeni Personel Ekle</h3>
+        </div>
+    </div>
+    @using (Html.BeginForm("PersonelEkle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <form method="post">
+            <div class="card-body">
+
+                <div class="form-group">
+                    <label for="PersonelAd">Personel Adı Giriniz.</label>
+                    @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control", @placeholder = "Adınızı Girin." })
+                </div>
+
+                <div class="form-group">
+                    <label for="PersonelSoyad">Personel Soyad Giriniz.</label>
+                    @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control", @placeholder = "Soyadınızı Girin." })
+                </div>
+
+                <div class="form-group">
+                        <label for="PersonelGorsel">Personel Görsel Giriniz.</label>
+                        @Html.TextBoxFor(x => x.PersonelGorsel, new {@type="file", @class = "form-control", @name= "PersonelGorsel" })
+                    </div>
+                @*<div class="form-group">
+                    <label for="customFile">Personel Görsel Giriniz.</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Dosya Seç</label>
+                    </div>
+                </div>*@
+
+                <div class="form-group">
+                    <label for="Departmanid">Personel Departman Giriniz.</label>
+                    @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.departmancombobox, "Departman Seçiniz.", new { @class = "form-control select2" })
+                </div>
+
+            </div>
+            <div class="card-body">
+                <button type="submit" class="btn btn-dark">Yeni Personel Kaydet</button>
+            </div>
+        </form>
+    }
+</div>

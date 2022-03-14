@@ -1,0 +1,100 @@
+﻿@using MVC5TicariOtomasyon.Models.Siniflar;
+@model List<Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Ürün Listesi</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="">Ürünler</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="card mb-4">
+    <div class="card card-gray-dark">
+        <div class="card-header">
+            <h3 class="card-title">Ürünler Tablosu</h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ürün Adı</th>
+                    <th>Ürün Marka</th>
+                    <th>Ürün Stok</th>
+                    <th>Ürün Alış Fiyat</th>
+                    <th>Ürün Satış Fiyat</th>
+                    <th>Ürün Kategori</th>
+                    <th>Ürün Sil</th>
+                    <th>Ürün Güncelle</th>
+                    <th>Ürün Detay</th>
+                    <th>Satış Yap</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int i = 0; }
+                @foreach (var u in Model)
+                {
+                    <tr>
+                        <td>@(++i)</td>
+                        <td>@u.UrunAd</td>
+                        <td>@u.UrunMarka</td>
+                        <td>@u.UrunStok</td>
+                        <td>@u.UrunAlisFiyat.ToString("#,##0.00") ₺</td>
+                        <td>@u.UrunSatisFiyat.ToString("#,##0.00") ₺</td>
+                        <td>@u.Kategori.KategoriAD</td>
+                        <td>
+                            <a href="/Urun/UrunSil/@u.UrunID" class="btn btn-danger">
+                                <i class="fas fa-backspace"></i> Sil
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/Urun/UrunGetir/@u.UrunID" class="btn btn-warning">
+                                <i class="fas fa-edit"></i> Güncelle
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/Urun/UrunDetay/@u.UrunID" class="btn btn-info">
+                                <i class="fas fa-eye"></i> Detay
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/Urun/UrunSat/@u.UrunID" class="btn btn-dark">
+                                <i class="fas fa-lira-sign"></i> Sat
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>#</th>
+                    <th>Ürün Adı</th>
+                    <th>Ürün Marka</th>
+                    <th>Ürün Stok</th>
+                    <th>Ürün Alış Fiyat</th>
+                    <th>Ürün Satış Fiyat</th>
+                    <th>Ürün Kategori</th>
+                    <th>Ürün Sil</th>
+                    <th>Ürün Güncelle</th>
+                    <th>Ürün Detay</th>
+                    <th>Satış Yap</th>
+                </tr>
+            </tfoot>
+        </table>
+        <a href="/Urun/YeniUrun" class="btn btn-dark">Yeni Ürün Ekle</a>
+    </div>
+</div>

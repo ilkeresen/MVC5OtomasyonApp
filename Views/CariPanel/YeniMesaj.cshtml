@@ -1,0 +1,161 @@
+﻿@model MVC5TicariOtomasyon.Models.Siniflar.Mesajlar
+@{
+    ViewBag.Title = "YeniMesaj";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Yeni Mesaj Oluştur</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/CariPanel/Index/">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="">Yeni Mesaj</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <a href="/CariPanel/GelenMesajlar/" class="btn btn-dark btn-block mb-3">Gelen Kutusuna</a>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Klasörler</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item active">
+                                <a href="/CariPanel/GelenMesajlar/" class="nav-link">
+                                    <i class="fas fa-inbox"></i> Gelen Kutusu
+                                    <span class="badge bg-primary float-right">@ViewBag.GelenMesaj</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/CariPanel/GidenMesajlar" class="nav-link">
+                                    <i class="far fa-envelope"></i> Gönderilmiş E-Postalar
+                                    <span class="badge bg-warning float-right">@ViewBag.GidenMesaj</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-file-alt"></i> Taslaklar
+                                    <span class="badge bg-fuchsia float-right">0</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-filter"></i> Gereksiz E-Postalar
+                                    <span class="badge bg-green float-right">2</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-trash-alt"></i> Silinmiş Öğeler
+                                    <span class="badge bg-danger float-right">1</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Filtreler</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle text-danger"></i>
+                                    Önemliler
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle text-warning"></i> Promosyonlar
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle text-primary"></i>
+                                    Sosyal
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+                <div class="card card-dark card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">Yeni Mesaj Oluştur</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <form method="post">
+                        <div class="card-body">
+
+                            <div class="form-group">
+                                <input class="form-control" name="MesajAlici" placeholder="Kime:">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" name="MesajKonu" placeholder="Konu:">
+                            </div>
+                            <div class="form-group">
+                                <textarea id="compose-textarea" name="MesajIcerik" class="form-control" rows="30">
+                                
+                                </textarea>
+                            </div>
+                            @*<div class="form-group">
+                                    <div class="btn btn-default btn-file">
+                                        <i class="fas fa-paperclip"></i> Dosya Seç
+                                        <input type="file" name="attachment">
+                                    </div>
+                                    <p class="help-block">Max. 5MB</p>
+                                </div>*@
+
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <div class="float-right">
+                                <button type="button" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Taslak</button>
+                                <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
+                            </div>
+                            <button type="reset" class="btn btn-default"><i class="fas fa-times"></i> Vazgeç</button>
+                        </div>
+                    </form>
+                    <!-- /.card-footer -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->

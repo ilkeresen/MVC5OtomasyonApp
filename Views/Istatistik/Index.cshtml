@@ -1,0 +1,253 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>İstatistikler</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="">İstatistikler</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="row">
+    <!-- ./col TOPLAM CARİ-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-primary">
+            <div class="inner">
+                <h3>@ViewBag.toplamCari</h3>
+
+                <p>Toplam Cari</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-bag"></i>
+            </div>
+        </div>
+    </div>
+    <!-- ./col ÜRÜN SAYISI-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-secondary">
+            <div class="inner">
+                <h3>@ViewBag.toplamUrun</h3>
+
+                <p>Toplam Ürün Sayısı</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-clipboard"></i>
+            </div>
+        </div>
+    </div>
+    <!-- ./col PERSONEL SAYISI-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-info">
+            <div class="inner">
+                <h3>@ViewBag.toplamPersonel</h3>
+
+                <p>Toplam Personel Sayısı</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-person-add"></i>
+            </div>
+        </div>
+    </div>
+    <!-- ./col KATEGORİ SAYISI-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-success">
+            <div class="inner">
+                <h3>@ViewBag.toplamKategori</h3>
+
+                <p>Toplam Kategori</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-ios-copy"></i>
+            </div>
+        </div>
+    </div>
+    <!-- ./col TOPLAM STOK-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-danger">
+            <div class="inner">
+                <h3>@ViewBag.toplamStok</h3>
+
+                <p>Toplam Stok Sayısı</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+            </div>
+        </div>
+    </div>
+    <!-- ./col MARKA SAYISI-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-indigo">
+            <div class="inner">
+                <h3>@ViewBag.markaSayisi</h3>
+
+                <p>Toplam Marka Sayısı</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-location"></i>
+            </div>
+        </div>
+    </div>
+    <!-- ./col KRİTİK SEVİYE-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-purple">
+            <div class="inner">
+                <h3>@ViewBag.toplamKritikSeviye</h3>
+
+                <p>Kritik Seviye Ürün Sayısı</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-nuclear"></i>
+            </div>
+        </div>
+    </div>
+    <!-- ./col MAX FİYATLI ÜRÜN-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-pink">
+            <div class="inner">
+                <h3>@ViewBag.maxFiyatliUrun</h3>
+
+                <p>Maksimum Fiyatlı Ürün</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-arrow-up-c"></i>
+            </div>
+        </div>
+    </div>
+    <!-- ./col MİN FİYATLI ÜRÜN-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-maroon">
+            <div class="inner">
+                <h3>@ViewBag.minFiyatliUrun</h3>
+
+                <p>Minimum Fiyatlı Ürün</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-arrow-down-c"></i>
+            </div>
+        </div>
+    </div>
+    <!-- ./col MAX MARKA-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-lightblue">
+            <div class="inner">
+                <h3>@ViewBag.maxMarka</h3>
+
+                <p>Maksimum Ürünlü Marka</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-chevron-up"></i>
+            </div>
+        </div>
+    </div>
+    <!-- ./col BUZDOLABI SAYISI-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-teal">
+            <div class="inner">
+                <h3>@ViewBag.toplamBuzdolabiSayisi</h3>
+
+                <p>Toplam Buzdolabı Sayısı</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-calculator"></i>
+            </div>
+        </div>
+    </div>
+    <!-- ./col LAPTOP SAYISI-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-cyan">
+            <div class="inner">
+                <h3>@ViewBag.toplamLaptopSayisi</h3>
+
+                <p>Toplam Laptop Sayısı</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-laptop"></i>
+            </div>
+        </div>
+    </div>
+    <!-- ./col -->
+    <!-- ./col EN ÇOK SATAN-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-fuchsia">
+            <div class="inner">
+                <h3>@ViewBag.maxSatanUrun</h3>
+
+                <p>En Çok Satan Ürün</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-checkmark"></i>
+            </div>
+        </div>
+    </div>
+    <!-- ./col -->
+    <!-- ./col KASADAKİ TUTAR-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-dark">
+            <div class="inner">
+                <h3>@ViewBag.toplamKasaTutar ₺</h3>
+
+                <p>Kasadaki Toplam Tutar</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-cash"></i>
+            </div>
+        </div>
+    </div>
+    <!-- ./col -->
+    <!-- ./col BUGÜNKÜ SATIŞLAR-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-olive">
+            <div class="inner">
+                <h3>@ViewBag.bugunkuSatislar</h3>
+
+                <p>Bugünkü Toplam Satışlar</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-cash"></i>
+            </div>
+        </div>
+    </div>
+    <!-- ./col -->
+    <!-- ./col BUGÜNKÜ KASA-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-navy">
+            <div class="inner">
+                <h3>@ViewBag.bugunkuKasa ₺</h3>
+
+                <p>Bugünkü Toplam Kasa</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-cash"></i>
+            </div>
+        </div>
+    </div>
+    <!-- ./col -->
+</div>

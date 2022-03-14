@@ -1,0 +1,60 @@
+﻿@model MVC5TicariOtomasyon.Models.Siniflar.Personel
+@{
+    ViewBag.Title = "PersonelGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Personel Güncelle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="/Personel/Index">Personeller</a></li>
+                    <li class="breadcrumb-item"><a href="">Personel Güncelle</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="card mb-4">
+    <div class="card card-gray-dark">
+        <div class="card-header">
+            <h3 class="card-title">Personel Güncelle</h3>
+        </div>
+    </div>
+    @using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="card-body">
+
+            <div class="form-group">
+                <label for="PersonelAd">Departman Adı Giriniz.</label>
+                @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
+                @Html.HiddenFor(x => x.PersonelID)
+            </div>
+
+            <div class="form-group">
+                <label for="PersonelSoyad">Personel Soyad Giriniz.</label>
+                @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="PersonelGorsel">Personel Görsel Giriniz.</label>
+                @Html.TextBoxFor(x => x.PersonelGorsel, new { @type = "file", @class = "form-control", @name = "PersonelGorsel" })
+            </div>
+
+            <div class="form-group">
+                <label for="Departmanid">Departman Giriniz.</label>
+                @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.departmancombobox, "Departman Giriniz.", new { @class = "form-control select2" })
+            </div>
+
+        </div>
+        <div class="card-body">
+            <button type="submit" class="btn btn-dark">Departman Kaydet</button>
+        </div>
+    }
+</div>

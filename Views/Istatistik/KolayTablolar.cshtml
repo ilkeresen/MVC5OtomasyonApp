@@ -1,0 +1,131 @@
+﻿@model IEnumerable<MVC5TicariOtomasyon.Models.Siniflar.SinifGrup>
+@{
+    ViewBag.Title = "KolayTablolar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Kolay Tablolar</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="">Basit Tablolar</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Action("PersonelSatis", "Istatistik")
+                <!-- /.card -->
+
+                @Html.Action("DepartmanPersonelSayi", "Istatistik")
+
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Şehir Müşteri Tablosu</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10px">#</th>
+                                    <th>Şehir</th>
+                                    <th>Progress Bar</th>
+                                    <th style="width: 40px">Adet</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ int sirano = 0;}
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@{sirano++;} @sirano</td>
+                                        <td>@item.Ad</td>
+                                        <td>
+                                            <div class="progress progress-xs">
+                                                @if (item.Sayi >= 1 && item.Sayi <= 25)
+                                                {
+                                                    <div class="progress-bar bg-danger" style="width: @item.Sayi%"></div>
+                                                }
+                                                @if (item.Sayi > 25 && item.Sayi <= 50)
+                                                {
+                                                    <div class="progress-bar bg-warning" style="width: @item.Sayi%"></div>
+                                                }
+                                                @if (item.Sayi > 50 && item.Sayi <= 75)
+                                                {
+                                                    <div class="progress-bar bg-primary" style="width: @item.Sayi%"></div>
+                                                }
+                                                @if (item.Sayi > 75 && item.Sayi <= 100)
+                                                {
+                                                    <div class="progress-bar bg-success" style="width: @item.Sayi%"></div>
+                                                }
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @if (item.Sayi >= 1 && item.Sayi <= 25)
+                                            {
+                                                <span class="badge bg-danger">@item.Sayi</span>
+                                            }
+                                            @if (item.Sayi > 25 && item.Sayi <= 50)
+                                            {
+                                                <span class="badge bg-warning">@item.Sayi</span>
+                                            }
+                                            @if (item.Sayi > 50 && item.Sayi <= 75)
+                                            {
+                                                <span class="badge bg-primary">@item.Sayi</span>
+                                            }
+                                            @if (item.Sayi > 75 && item.Sayi <= 100)
+                                            {
+                                                <span class="badge bg-success">@item.Sayi</span>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+                @Html.Action("UrunMarkaGrup", "Istatistik")
+
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+
+        <!-- /.row -->
+        <div class="row">
+
+            @Html.Action("CariSayi", "Istatistik")
+
+        </div>
+        <!-- /.row -->
+        <div class="row">
+
+            @Html.Action("UrunSayi", "Istatistik")
+
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->

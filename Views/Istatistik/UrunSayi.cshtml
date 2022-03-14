@@ -1,0 +1,40 @@
+﻿@using MVC5TicariOtomasyon.Models.Siniflar
+@model List<Urun>
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Ürünler Genel Tablosu</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0" style="height: 300px;">
+            <table class="table table-head-fixed text-nowrap">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ürün Adı</th>
+                        <th>Ürün Markası</th>
+                        <th>Ürün Stok</th>
+                        <th>Ürün Alış Fiyatı</th>
+                        <th>Ürün Satış Fiyatı</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.UrunID</td>
+                            <td>@item.UrunAd</td>
+                            <td>@item.UrunMarka</td>
+                            <td>@item.UrunStok</td>
+                            <td>@item.UrunAlisFiyat ₺</td>
+                            <td>@item.UrunSatisFiyat ₺</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
